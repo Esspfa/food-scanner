@@ -1,4 +1,4 @@
-package com.innodroid.foodscanner;
+package com.foody.foodscanner;
 
 import com.facebook.react.ReactActivity;
 

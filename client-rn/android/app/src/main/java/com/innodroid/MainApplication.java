@@ -1,4 +1,4 @@
-package com.innodroid.foodscanner;
+package com.foody.foodscanner;
 
 import android.app.Application;
 import android.content.Context;
