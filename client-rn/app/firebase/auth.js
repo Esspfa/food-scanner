@@ -1,6 +1,5 @@
 import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-community/google-signin';
-// import { googleWebClientID } from './keys';
+import {GoogleSignin} from '@react-native-google-signin/google-signin'; // import { googleWebClientID } from './keys';
 
 GoogleSignin.configure({
   webClientId:
@@ -10,11 +9,15 @@ GoogleSignin.configure({
 });
 
 export async function loginWithGoogle() {
-  return GoogleSignin.signIn().then((user) => {
-    const googleCredential = auth.GoogleAuthProvider.credential(user.idToken);
-
-    return auth().signInWithCredential(googleCredential);
-  });
+  // await GoogleSignin.hasPlayServices();
+  return GoogleSignin.signIn()
+    .then((user) => {
+      const googleCredential = auth.GoogleAuthProvider.credential(user.idToken);
+      console.log(googleCredential);
+      return auth().signInWithCredential(googleCredential);
+    })
+    .catch(console.log);
+  // return auth().signInWithCredential(googleCredential);
 }
 
 export function logout() {
